@@ -1,6 +1,6 @@
 import re
 
-from qfluentwidgets import FluentIcon
+from ok import BaseTask
 
 from src.tasks.MyBaseTask import MyBaseTask
 
@@ -11,7 +11,6 @@ class MyOneTimeTask(MyBaseTask):
         super().__init__(*args, **kwargs)
         self.name = "点击触发运行任务"
         self.description = "用户点击时调用run方法"
-        self.icon = FluentIcon.SYNC
         self.default_config.update({
             '下拉菜单选项': "第一",
             '是否选项默认支持': False,
