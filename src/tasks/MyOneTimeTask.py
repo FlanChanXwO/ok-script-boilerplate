@@ -9,7 +9,7 @@ class MyOneTimeTask(MyBaseTask):
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.name = "点击触发运行任务"
+        self.name = "测试任务"
         self.description = "用户点击时调用run方法"
         self.icon = FluentIcon.SYNC
         self.default_config.update({
@@ -24,36 +24,10 @@ class MyOneTimeTask(MyBaseTask):
                                       'options': ['第一', '第二', '第3']}
 
     def run(self):
-        self.log_info('日常任务开始运行!', notify=True)
-        self.click(0.47, 0.60)
-        self.sleep(1)
-        self.run_for_5()
+        self.log_info('测试任务开始运行!', notify=True)
+        texts = self.ocr()
+        self.log_info(f'ocr {texts}', notify=True)
+        self.click(0.47, 0.60, after_sleep=1)
         self.log_info('日常任务运行完成!', notify=True)
-
-    def find_some_text_on_bottom_right(self):
-        return self.ocr(box="bottom_right",match="商城", log=True) #指定box以提高ocr速度
-
-    def find_some_text_with_relative_box(self):
-        return self.ocr(0.5, 0.5, 1, 1, match=re.compile("招"), log=True) #指定box以提高ocr速度
-
-    def test_find_one_feature(self):
-        return self.find_one('box_battle_1')
-
-    def test_find_feature_list(self):
-        return self.find_feature('box_battle_1')
-
-    def run_for_5(self):
-        self.operate(lambda: self.do_run_for_5())
-
-    def do_run_for_5(self):
-        self.do_send_key_down('w')
-        self.sleep(0.1)
-        self.do_mouse_down(key='right')
-        self.sleep(0.1)
-        self.do_mouse_up(key='right')
-        self.sleep(5)
-        self.do_send_key_up('w')
-
-
 
 

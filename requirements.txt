@@ -4,9 +4,11 @@
 #
 #    pip-compile requirements.in
 #
-ok-script==1.0.28
+ok-script==1.0.88
+
+pynput==1.8.1
     # via -r requirements.in
-onnxocr-ppocrv4==0.0.5
+onnxocr-ppocrv5==0.0.14
     # via -r requirements.in
 pyappify==1.0.2
     # via ok-script
@@ -75,5 +77,5 @@ typing-extensions==4.14.1
     # via ok-script
 urllib3==2.5.0
     # via requests
-#adbutils==2.11.0
+adbutils==2.12.0
 #如果支持模拟器则添加这个
